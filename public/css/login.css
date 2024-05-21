@@ -1,12 +1,23 @@
 /* Fonts */
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #f7edd5;
+    background: #343a40;
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin-top: 10%;
+    margin-left: 25%;
+
   }
   
   .container {
     max-width: 900px;
-    align-content: center;
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    
   }
   
   a {
@@ -191,6 +202,8 @@ body {
   }
   
   .form .form-group {
+    margin-top: 20px;
+    margin-left: 15px;
     margin-bottom: 5px;
     position: relative;
   }
@@ -256,8 +269,36 @@ body {
     color: #f95959;
   }
   
+  .btn {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .btn {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
+    box-shadow: 0 10px 20px -6px rgba(238, 103, 97, 0.5);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    color: white;
+  }
+  
+  .btn:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  
+  .btn:active {
+    opacity: 0.5;
+  }
+
   .form .CTA {
     margin-top: 30px;
+    margin-left: 15px;
   }
   
   .form .CTA input {
@@ -279,6 +320,7 @@ body {
     color: #bbbbbb;
     text-decoration: underline;
     transition: all 0.3s;
+    margin-left: 50px;
   }
   
   .form .CTA a.switch:hover {
@@ -317,8 +359,9 @@ body {
    /* styling of animated border */
    .input-border {
     position: absolute;
-    background: var(--border-after-color);
+    background: #000;
     width: 0%;
+    margin-top: 5%;
     height: 2px;
     bottom: 0;
     left: 0;
