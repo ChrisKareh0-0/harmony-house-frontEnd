@@ -1,6 +1,6 @@
 <?php
-require '../src/dotenv.php';
-require '../src/db_config.php';
+require '../backend/database/dotenv.php';
+require '../backend/database/db_config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
