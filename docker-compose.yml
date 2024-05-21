@@ -4,7 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - .:/var/www
     depends_on:
@@ -20,9 +20,10 @@ services:
       MYSQL_PASSWORD: your_password
     volumes:
       - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "3306:3306"
-    command: --init-file /var/www/init.sql
+      - "3307:3306"
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
 
 volumes:
   db_data:

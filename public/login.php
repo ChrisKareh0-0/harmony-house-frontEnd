@@ -17,13 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         if (password_verify($password, $hashed_password)) {
-            echo "Login successful!";
             session_start();
             $_SESSION['username'] = $username;
             header("Location: protected_page.php");
+            exit;
         } else {
             echo "Invalid password.";
-            header("Location: ./login.html")
+            header("Location: ./login.html");
+            exit;
         }
     } else {
         echo "No user found with that username.";
