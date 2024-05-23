@@ -1,7 +1,10 @@
-/*global $, document, window, setTimeout, navigator, console, location*/
 $(document).ready(function () {
-    console.log("am I connected ?")
+    console.log("am I connected?");
     'use strict';
+
+    $('.signup-form').on('submit', function(e) {
+        console.log("Form is submitting"); // Add this line to check if the event is triggered
+    });
 
     var usernameError = true,
         emailError    = true,
@@ -15,13 +18,11 @@ $(document).ready(function () {
 
     // Label effect
     $('input').focus(function () {
-
         $(this).siblings('label').addClass('active');
     });
 
     // Form validation
     $('input').blur(function () {
-
         // User Name
         if ($(this).hasClass('name')) {
             if ($(this).val().length === 0) {
@@ -60,7 +61,7 @@ $(document).ready(function () {
         // PassWord confirmation
         if ($('.pass').val() !== $('.passConfirm').val()) {
             $('.passConfirm').siblings('.error').text('Passwords don\'t match').fadeIn().parent('.form-group').addClass('hasError');
-            passConfirm = false;
+            passConfirm = true;
         } else {
             $('.passConfirm').siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
             passConfirm = false;
@@ -74,7 +75,6 @@ $(document).ready(function () {
         }
     });
 
-
     // form switch
     $('a.switch').click(function (e) {
         $(this).toggleClass('active');
@@ -87,7 +87,6 @@ $(document).ready(function () {
         }
     });
 
-
     // Form submit
     $('form.signup-form').submit(function (event) {
         event.preventDefault();
@@ -95,14 +94,9 @@ $(document).ready(function () {
         if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
             $('.name, .email, .pass, .passConfirm').blur();
         } else {
-            $('.signup, .login').addClass('switched');
-
-            setTimeout(function () { $('.signup, .login').hide(); }, 700);
-            setTimeout(function () { $('.brand').addClass('active'); }, 300);
-            setTimeout(function () { $('.heading').addClass('active'); }, 600);
-            setTimeout(function () { $('.success-msg p').addClass('active'); }, 900);
-            setTimeout(function () { $('.success-msg a').addClass('active'); }, 1050);
-            setTimeout(function () { $('.form').hide(); }, 700);
+            // Submit the form if no errors
+            this.submit();
+            
         }
     });
 
@@ -110,6 +104,4 @@ $(document).ready(function () {
     $('a.profile').on('click', function () {
         location.reload(true);
     });
-
-
 });

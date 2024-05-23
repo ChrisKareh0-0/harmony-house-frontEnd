@@ -1,7 +1,7 @@
 <?php
-require '../backend/database/dotenv.php';
-require '../backend/database/db_config.php';
-
+require '../src/dotenv.php';
+require '../src/db_config.php';
+echo "am in login.php?";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];

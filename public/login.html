@@ -1,112 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet"
-        href = "css/login.css"/>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="./js/login.js"></script>
-    </head>
-    <body class="container">
-        
-            <section id="formHolder">
-         
-               <div class="brand-form-container">
-         
-                  <!-- Brand Box -->
-                  <div class="col-sm-6 brand">
-         
-                     <div class="heading">
-                        <h2>Harmony House</h2>
-                        <p>Your Right Choice</p>
-                     </div>
-         
-                     <div class="success-msg">
-                        <p>Great! You are one of our members now</p>
-                        <a href="#" class="profile">Your Profile</a>
-                     </div>
-                  </div>
-         
-         
-                  <!-- Form Box -->
-                  <div class="col-sm-6 form">
-         
-                     <!-- Login Form -->
-                     <div class="login form-peice switched">
-                        <form class="login-form" action="#" method="post">
-                           <div class="form-group">
-                              <input class="input" placeholder="Email Address" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="form-group">
-                              <input class="input" placeholder="Password" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="CTA">
-                              <button class="btn">Sign In</button>
-                              <a href="#" class="switch">I'm New</a>
-                           </div>
-                        </form>
-                     </div><!-- End Login Form -->
-         
-         
-                     <!-- Signup Form -->
-                     <div class="signup form-peice">
-                        <form class="signup-form" action="#" method="post">
-         
-                           <div class="form-group">
-                              <!-- <label for="name">Full Name</label>
-                              <input type="text" name="username" id="name" class="name"> -->
-                              
-                              <input class="input" placeholder="Name" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="form-group">
-                              <input class="input" placeholder="Email Address" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="form-group">
-                              <input class="input" placeholder="Phone Number" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="form-group">
-                              <input class="input" placeholder="Password" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="form-group">
-                              <input class="input" placeholder="Confirm Password" required="" type="text">
-                              <span class="input-border"></span>
-                              <span class="error"></span>
-                           </div>
-         
-                           <div class="CTA">
-                              <!-- <input type="submit" value="Signup Now" id="submit"> -->
-                              <button class="btn">Sign Up</button>
-                              <a href="#" class="switch">I have an account</a>
-                           </div>
-                        </form>
-                     </div><!-- End Signup Form -->
-                  </div>
-               </div>
-         
-            </section>
-         
-         
-            
-         
-         
-         
-    </body>
+<head>
+    <link rel="stylesheet" href="css/login.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/login.js"></script>
+</head>
+<body class="container">
+    <section id="formHolder">
+        <div class="brand-form-container">
+            <!-- Brand Box -->
+            <div class="col-sm-6 brand">
+                <div class="heading">
+                    <h2>Harmony House</h2>
+                    <p>Your Right Choice</p>
+                </div>
+                <div class="success-msg">
+                    <p>Great! You are one of our members now</p>
+                    <a href="#" class="profile">Your Profile</a>
+                </div>
+            </div>
+            <!-- Form Box -->
+            <div class="col-sm-6 form">
+                <!-- Login Form -->
+                <div class="login form-peice switched">
+                    <form class="login-form" action="./login.php" method="post">
+                        <div class="form-group">
+                            <input class="input" name="username" placeholder="Email Address" required type="text">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" name="password" placeholder="Password" required type="password">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="CTA">
+                            <button class="btn" type="submit">Sign In</button>
+                            <a href="#" class="switch">I'm New</a>
+                        </div>
+                    </form>
+                </div><!-- End Login Form -->
+                <!-- Signup Form -->
+                <div class="signup form-peice">
+                    <form class="signup-form" action="./register.php" method="post">
+                        <div class="form-group">
+                            <input class="input" name="username" placeholder="Name" required type="text">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" name="email" placeholder="Email Address" required type="email">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" name="phone" placeholder="Phone Number" required type="text">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="input pass" name="password" placeholder="Password" required type="password">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input class="input passConfirm" name="confirm_password" placeholder="Confirm Password" required type="password">
+                            <span class="input-border"></span>
+                            <span class="error"></span>
+                        </div>
+                        <div class="CTA">
+                            <button class="btn" type="submit">Sign Up</button>
+                            <a href="#" class="switch">I have an account</a>
+                        </div>
+                    </form>
+                </div><!-- End Signup Form -->
+            </div>
+        </div>
+    </section>
+</body>
 </html>
-
