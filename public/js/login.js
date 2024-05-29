@@ -1,107 +1,103 @@
 $(document).ready(function () {
-    console.log("am I connected?");
-    'use strict';
+  console.log('am I connected?');
+  ('use strict');
 
-    $('.signup-form').on('submit', function(e) {
-        console.log("Form is submitting"); // Add this line to check if the event is triggered
+  var usernameError = true,
+    emailError = true,
+    passwordError = true,
+    passConfirm = true;
+
+  // Detect browser for css purpose
+  if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    $('.form form label').addClass('fontSwitch');
+  }
+
+  // Label effect
+  $('input').focus(function () {
+    $(this).siblings('label').addClass('active');
+  });
+
+  // Form validation function
+  function validateForm() {
+    // Reset error states
+    usernameError = emailError = passwordError = passConfirm = false;
+
+    $('input.name').each(function () {
+      if ($(this).val().length === 0) {
+        $(this).siblings('span.error').text('Please type your full name').fadeIn().parent('.form-group').addClass('hasError');
+        usernameError = true;
+      } else if ($(this).val().length > 1 && $(this).val().length <= 6) {
+        $(this).siblings('span.error').text('Please type at least 6 characters').fadeIn().parent('.form-group').addClass('hasError');
+        usernameError = true;
+      } else {
+        $(this).siblings('span.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+        usernameError = false;
+      }
     });
 
-    var usernameError = true,
-        emailError    = true,
-        passwordError = true,
-        passConfirm   = true;
+    $('input.email').each(function () {
+      if ($(this).val().length === 0) {
+        $(this).siblings('span.error').text('Please type your email address').fadeIn().parent('.form-group').addClass('hasError');
+        emailError = true;
+      } else {
+        $(this).siblings('span.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+        emailError = false;
+      }
+    });
 
-    // Detect browser for css purpose
-    if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-        $('.form form label').addClass('fontSwitch');
+    $('input.pass').each(function () {
+      if ($(this).val().length < 8) {
+        $(this).siblings('span.error').text('Please type at least 8 characters').fadeIn().parent('.form-group').addClass('hasError');
+        passwordError = true;
+      } else {
+        $(this).siblings('span.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+        passwordError = false;
+      }
+    });
+
+    if ($('.pass').val() !== $('.passConfirm').val()) {
+      $('.passConfirm').siblings('span.error').text("Passwords don't match").fadeIn().parent('.form-group').addClass('hasError');
+      passConfirm = true;
+    } else {
+      $('.passConfirm').siblings('span.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
+      passConfirm = false;
     }
+  }
+  // Form switch
 
-    // Label effect
-    $('input').focus(function () {
-        $(this).siblings('label').addClass('active');
-    });
+  $('a.switch').click(function (e) {
+    $(this).toggleClass('active');
 
-    // Form validation
-    $('input').blur(function () {
-        // User Name
-        if ($(this).hasClass('name')) {
-            if ($(this).val().length === 0) {
-                $(this).siblings('span.error').text('Please type your full name').fadeIn().parent('.form-group').addClass('hasError');
-                usernameError = true;
-            } else if ($(this).val().length > 1 && $(this).val().length <= 6) {
-                $(this).siblings('span.error').text('Please type at least 6 characters').fadeIn().parent('.form-group').addClass('hasError');
-                usernameError = true;
-            } else {
-                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-                usernameError = false;
-            }
-        }
-        // Email
-        if ($(this).hasClass('email')) {
-            if ($(this).val().length == '') {
-                $(this).siblings('span.error').text('Please type your email address').fadeIn().parent('.form-group').addClass('hasError');
-                emailError = true;
-            } else {
-                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-                emailError = false;
-            }
-        }
+    e.preventDefault();
 
-        // PassWord
-        if ($(this).hasClass('pass')) {
-            if ($(this).val().length < 8) {
-                $(this).siblings('span.error').text('Please type at least 8 charcters').fadeIn().parent('.form-group').addClass('hasError');
-                passwordError = true;
-            } else {
-                $(this).siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-                passwordError = false;
-            }
-        }
+    if ($('a.switch').hasClass('active')) {
+      $(this).parents('.form-peice').addClass('switched').siblings('.form-peice').removeClass('switched');
+    } else {
+      $(this).parents('.form-peice').removeClass('switched').siblings('.form-peice').addClass('switched');
+    }
+  });
+  // Form submit
+  $('form.signup-form').submit(function (event) {
+    console.log('Form submit handler called');
+    event.preventDefault();
 
-        // PassWord confirmation
-        if ($('.pass').val() !== $('.passConfirm').val()) {
-            $('.passConfirm').siblings('.error').text('Passwords don\'t match').fadeIn().parent('.form-group').addClass('hasError');
-            passConfirm = true;
-        } else {
-            $('.passConfirm').siblings('.error').text('').fadeOut().parent('.form-group').removeClass('hasError');
-            passConfirm = false;
-        }
+    // Perform validation
+    validateForm();
 
-        // label effect
-        if ($(this).val().length > 0) {
-            $(this).siblings('label').addClass('active');
-        } else {
-            $(this).siblings('label').removeClass('active');
-        }
-    });
+    if (usernameError || emailError || passwordError || passConfirm) {
+      console.log('usernameError', usernameError);
+      console.log('emailError', emailError);
+      console.log('passwordError', passwordError);
+      console.log('passConfirm', passConfirm);
+      console.log('Form has errors');
+    } else {
+      console.log('No errors, submitting form');
+      this.submit();
+    }
+  });
 
-    // form switch
-    $('a.switch').click(function (e) {
-        $(this).toggleClass('active');
-        e.preventDefault();
-
-        if ($('a.switch').hasClass('active')) {
-            $(this).parents('.form-peice').addClass('switched').siblings('.form-peice').removeClass('switched');
-        } else {
-            $(this).parents('.form-peice').removeClass('switched').siblings('.form-peice').addClass('switched');
-        }
-    });
-
-    // Form submit
-    $('form.signup-form').submit(function (event) {
-        event.preventDefault();
-
-        if (usernameError == true || emailError == true || passwordError == true || passConfirm == true) {
-            $('.name, .email, .pass, .passConfirm').blur();
-        } else {
-            // Submit the form if no errors
-            this.submit();
-            
-        }
-    });
-
-    // Reload page
-    $('a.profile').on('click', function () {
-        location.reload(true);
-    });
+  // Reload page
+  $('a.profile').on('click', function () {
+    location.reload(true);
+  });
 });

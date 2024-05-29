@@ -8,14 +8,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+    echo "username" . ": " . $username . "<br/>";
+    echo "email" . ": " . $email . "<br/>";
+    echo "phone" . ": " . $phone . "<br/>";
+    echo "password" . ": " . $password . "<br/>";
+
     $sql = "INSERT INTO users (username, email, phone, password) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
+
+    // Check if prepare() failed
+    if ($stmt === false) {
+        die("Prepare failed: " . htmlspecialchars($conn->error));
+    }
+
     $stmt->bind_param("ssss", $username, $email, $phone, $password);
 
     if ($stmt->execute()) {
         echo "Registration successful!";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . htmlspecialchars($stmt->error);
     }
 
     $stmt->close();

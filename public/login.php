@@ -1,13 +1,25 @@
 <?php
-require '../src/dotenv.php';
-require '../src/db_config.php';
-echo "am in login.php?";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require '../src/dotenv.php';
+    require '../src/db_config.php';
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    if (strlen($username) == 0 || strlen($password) == 0) {
+        header("Location: ./login.html");
+        exit;
+    }
+    
     $sql = "SELECT id, username, password FROM users WHERE username = ?";
     $stmt = $conn->prepare($sql);
+
+    // Check if prepare() failed
+    if ($stmt === false) {
+        die("Prepare failed: " . htmlspecialchars($conn->error));
+    }
+
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
@@ -28,9 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         echo "No user found with that username.";
+        // header("Location: ./login.html?error=No user found with that username.");
     }
 
     $stmt->close();
     $conn->close();
-} 
+}
+
 ?>
