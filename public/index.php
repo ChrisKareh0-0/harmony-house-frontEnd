@@ -1,3 +1,7 @@
+<?php
+// Start the session at the very top of the file
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,70 +31,77 @@
     <title>Harmony House</title>
   </head>
   <body>
-    <header class="bg-dark w-100">
-      <nav class="nav-bar ai-c jc-sb py-1 max-w-80 w-90">
-        <div class="nav--left ai-c">
-          <div class="nav__brand">
-            <div class="nav__brand__logo mr-2">
-              <img
-                class="nav__brand__logo__img"
-                src="../images/H_White.png"
-                alt="waves-icon"
-              />
-            </div>
-            <div class="nav__brand__name">
-              <a class="brand-name--sm-w" href="/index.html">Harmony House</a>
-            </div>
+  <header class="bg-dark w-100">
+    <nav class="nav-bar ai-c jc-sb py-1 max-w-80 w-90">
+      <div class="nav--left ai-c">
+        <div class="nav__brand">
+          <div class="nav__brand__logo mr-2">
+            <img class="nav__brand__logo__img" src="../images/H_White.png" alt="waves-icon" />
           </div>
-       
-          <div class="nav__menu--short px-3 py-1 ai-c">
-            <div><a href="/index.html"><i class="fas fa-bars"></i></a></div>
+          <div class="nav__brand__name">
+            <a class="brand-name--sm-w" href="/index.html">Harmony House</a>
           </div>
-
-          <div class="nav__menu ai-c tupper">
-
-            <a class="nav__menu__item" href="/index.html">
-              <div class="nav__menu__item co-r ai-c">
-                <div class="nav__menu__item-icon mr-2">
-                  <i class="fas fa-home"></i>
-                </div>
-                <div class="nav__menu_item-text">home</div>
-              </div>
-            </a>
-
-            <a class="nav__menu__item" href="#">
-              <div class="nav__menu__item co-l ai-c">
-                <div class="nav__menu__item-icon mr-2">
-                  <i class="fas fa-record-vinyl"></i>
-                </div>
-                <div class="nav__menu_item-text">collection</div>
-              </div>
-            </a>
-
-            <a class="nav__menu__item" href="#">
-              <div class="nav__menu__item co-l ai-c">
-                <div class="nav__menu__item-icon mr-2">
-                  <i class="fas fa-shopping-cart"></i>
-                </div>
-                <div class="nav__menu_item-text">shopping</div>
-              </div>
-            </a>
-            </div>
-            
-
-          <!-- <button type="button" class="nav__button btn-red tupper">post</button> -->
         </div>
-        <div class="profile-icon d-none d-md-flex d-lg-none"><i class="fas fa-user"></i></div>
-        <div class="nav--right ai-c d-none d-lg-flex h-100">
-          <div class="messages mr-4"><a href="#"><i class="fas fa-envelope co-l"></i></a></div>
-          <!-- <div class="profile h-100 ai-c" onclick="window.location.href='login.html'">
-            <div class="profile__name co-w mr-2 f-gb">Login</div>
-            <div class="profile__img h-100 ai-c">
-              <img class="h-100 round" src="../images/face.jpeg" alt="face" />
+        <div class="nav__menu--short px-3 py-1 ai-c">
+          <div><a href="/index.html"><i class="fas fa-bars"></i></a></div>
+        </div>
+        <div class="nav__menu ai-c tupper">
+          <a class="nav__menu__item" href="/index.html">
+            <div class="nav__menu__item co-r ai-c">
+              <div class="nav__menu__item-icon mr-2"><i class="fas fa-home"></i></div>
+              <div class="nav__menu_item-text">home</div>
             </div>
-          </div> -->
-          <button class="loginBTN" onclick="window.location.href='login.html'">
-            <div class="wrapper">
+          </a>
+          <a class="nav__menu__item" href="#">
+            <div class="nav__menu__item co-l ai-c">
+              <div class="nav__menu__item-icon mr-2"><i class="fas fa-record-vinyl"></i></div>
+              <div class="nav__menu_item-text">collection</div>
+            </div>
+          </a>
+          <a class="nav__menu__item" href="#">
+            <div class="nav__menu__item co-l ai-c">
+              <div class="nav__menu__item-icon mr-2"><i class="fas fa-shopping-cart"></i></div>
+              <div class="nav__menu_item-text">shopping</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="profile-icon d-none d-md-flex d-lg-none"><i class="fas fa-user"></i></div>
+      <div class="nav--right ai-c d-none d-lg-flex h-100">
+        <div class="messages mr-4"><a href="#"><i class="fas fa-envelope co-l"></i></a></div>
+        <?php
+        if (isset($_SESSION['username'])) {
+            $username = htmlspecialchars($_SESSION['username']);
+            echo '
+            <button class="loginBTN" disabled>
+              <div class="wrapper">
+                <span>'.$username.'</span>
+                <div class="circle circle-12"></div>
+                <div class="circle circle-11"></div>
+                <div class="circle circle-10"></div>
+                <div class="circle circle-9"></div>
+                <div class="circle circle-8"></div>
+                <div class="circle circle-7"></div>
+                <div class="circle circle-6"></div>
+                <div class="circle circle-5"></div>
+                <div class="circle circle-4"></div>
+                <div class="circle circle-3"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-1"></div>
+              </div>
+            </button>
+            
+            <button class="logoutBtn" onclick="window.location.href=\'logout.php\'">
+              <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+              <div class="text">Logout</div>
+            </button>
+
+
+            ';
+        } else {
+            echo '
+            <button class="loginBTN" onclick="window.location.href=\'login.html\'">
+              <div class="wrapper">
                 <span>Login</span>
                 <div class="circle circle-12"></div>
                 <div class="circle circle-11"></div>
@@ -104,11 +115,14 @@
                 <div class="circle circle-3"></div>
                 <div class="circle circle-2"></div>
                 <div class="circle circle-1"></div>
-            </div>
-        </button>
-        </div>
-      </nav>
-    </header>
+              </div>
+            </button>
+            ';
+        }
+        ?>
+      </div>
+    </nav>
+  </header>
     <header class="upper container-fluid bg-red pt-6">
       <img class="watermark" src="../images/waves-icon.png" alt="wave-big">
       <div class="z-2 container max-w-80 w-90">

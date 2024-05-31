@@ -1,4 +1,18 @@
 /* Fonts */
+@font-face {
+    font-family: 'bebas';
+    src: url('../fonts/bebas-neue-fonts/BebasNeue.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+html {
+    height: 100% !important
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: #000;
@@ -13,10 +27,28 @@ body {
     height: "100%";
 
   }
+
+ .star {
+  transform-style: preserve-3d;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  color: red;
+}
+.star:before {
+  position: absolute;
+  content: '\2726';
+  color: inherit;
+  inset: 0;
+  /* box-shadow: 0 0 1em .5em #a3c2; */
+  /* filter: drop-shadow(0 0 .5em white); */
+  text-shadow: 0 0 .8em #fff5;
+  z-index: 99999;
+}
   
   .container {
     max-width: "100%";
-    height: "100%"
+    height: "100%" !important;
     /* position: absolute; */
     /* top: 50%;
     left: 50%;
@@ -49,6 +81,7 @@ body {
   }
   .brand-form-container {
     display: flex;
+    height: 100% !important;
   }
   
   /* Brand Area */
@@ -77,11 +110,11 @@ body {
   .brand::before {
     content: '';
     display: block;
-    width: 100%;
-    height: 110%;
+    width: 110%;
+    height: 210%;
     position: absolute;
     top: -5%;
-    left: 0;
+    left: -5%;
     background: rgba(0, 0, 0, 1);
     z-index: -1;
   }
@@ -103,18 +136,19 @@ body {
   
   .brand .heading {
     position: absolute;
-    top: 50%;
-    /* left: 50%; */
+    top: 90%;
+    left: 25%;
     transform: translate(-50%, -50%);
     /* text-align: center; */
     transition: all 0.6s;
     display: flex;
     width: 150%;
+    height: 100% !important;
   }
 
   .brand .heading img {
     position: relative;
-    right : 15%;
+    right : 10%;
   }
   
   .brand .heading.active {
@@ -124,14 +158,25 @@ body {
   }
   
   .brand .heading h2 {
-    font-size: 50px;
+    font-size: 90px;
     font-weight: 700;
     /* text-transform: uppercase; */
+    font-family: "bebas";
+    /* font-weight: 400; */
+    /* font-style: normal; */
+    /* letter-spacing: 1mm; */
+    /* font-stretch:extra-expanded; */
     position: absolute;
     top: 50%;
-    left : 33%;
+    left : 30%;
     margin-bottom: 0;
     margin: 0;
+  }
+
+  .brand .heading h3{
+    position: absolute;
+    top: 65%;
+    left: 40%;
   }
   
   .brand .heading p {
@@ -187,11 +232,11 @@ body {
   
   .form .form-peice {
     background: #fff;
-    min-height: 650px;
+    min-height: 200% !important;
     /* margin-top: 30px; */
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     color: #bbbbbb;
-    padding: 0px 10px 10px;
+    padding: 10px 20px 20px;
     transition: all 0.9s cubic-bezier(1.000, -0.375, 0.285, 0.995);
     position: absolute;
     top: -5%;
@@ -258,7 +303,7 @@ body {
     border: none;
     display: block;
     padding: 10px 0;
-    width: 100%;
+    width: 60%;
     border-bottom: 1px solid #eee;
     color: #444;
     font-size: 15px;
@@ -392,7 +437,7 @@ body {
    }
    /* here is code of animated border */
    input:focus ~ .input-border {
-    width: 100%;
+    width: 60%;
    }
   
   @media (max-width: 768px) {
@@ -454,6 +499,7 @@ body {
     }
     .brand-form-container {
         flex-direction: column;
+        height: 100% !important;
       }
       .brand {
         margin-right: 0;

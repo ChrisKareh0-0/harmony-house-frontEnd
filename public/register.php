@@ -1,17 +1,14 @@
 <?php
-require '../src/dotenv.php';
-require '../src/db_config.php';
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require '../src/dotenv.php';
+    require '../src/db_config.php';
+
     $username = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-    echo "username" . ": " . $username . "<br/>";
-    echo "email" . ": " . $email . "<br/>";
-    echo "phone" . ": " . $phone . "<br/>";
-    echo "password" . ": " . $password . "<br/>";
 
     $sql = "INSERT INTO users (username, email, phone, password) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
@@ -24,9 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssss", $username, $email, $phone, $password);
 
     if ($stmt->execute()) {
-        echo "Registration successful!";
+        // Registration successful, set the session variable and redirect
+        $_SESSION['username'] = $username;
+        header("Location: index.php");
+        exit();
     } else {
-        echo "Error: " . htmlspecialchars($stmt->error);
+        // Error occurred, stay on the registration page
+        $error = "Error: " . htmlspecialchars($stmt->error);
+        // Redirect back to registration page with error message
+        header("Location: register.php?error=" . urlencode($error));
+        exit();
     }
 
     $stmt->close();
