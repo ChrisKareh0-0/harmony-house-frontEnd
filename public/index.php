@@ -68,7 +68,7 @@ session_start();
       </div>
       <div class="profile-icon d-none d-md-flex d-lg-none"><i class="fas fa-user"></i></div>
       <div class="nav--right ai-c d-none d-lg-flex h-100">
-        <div class="messages mr-4"><a href="#"><i class="fas fa-envelope co-l"></i></a></div>
+        <!-- <div class="messages mr-4"><a href="#"><i class="fas fa-envelope co-l"></i></a></div> -->
         <?php
         if (isset($_SESSION['username'])) {
             $username = htmlspecialchars($_SESSION['username']);

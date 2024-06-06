@@ -1,0 +1,28 @@
+
+body {
+    background: #000;
+    background: -webkit-linear-gradient(to right, #000, #000);
+    background: linear-gradient(to right, #000, #000);
+    min-height: 100vh;
+    overflow: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  body::-webkit-scrollbar {
+    display: none;
+}
+
+html{
+    overflow-y: scroll; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+  .padded-container {
+    padding-left: 125px;
+    padding-right: 125px;
+}
+.quantity-sm {
+  width: 0px; /* Adjust the width as needed */
+  padding: 0.25rem;
+  text-align: center;
+}
