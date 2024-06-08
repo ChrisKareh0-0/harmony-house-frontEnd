@@ -70,11 +70,11 @@ session_start();
                   $username = htmlspecialchars($_SESSION['username']);
                   echo '
                   <li class="nav-item"><a class="nav-link">Hello, '.$username.'</a></li>
-                  <li class="nav-item"><a href="logout.php" class="nav-link">Logout</a></li>
+                  <li class="nav-item"><a href="../logout.php" class="nav-link">Logout</a></li>
                   ';
               } else {
                   echo '
-                  <li class="nav-item"><a href="login.php" class="nav-link">Log In</a></li>
+                  <li class="nav-item"><a href="../login.html" class="nav-link">Log In</a></li>
                   ';
               }
               ?>
