@@ -13,7 +13,19 @@ $products = [
         'image' => ['../images/stratocaster_relic3.jpg', '../images/stratocaster_relic2.jpg'],
         'description' => 'A vintage Stratocaster with a worn-in feel and classic tone.'
     ],
-    // Add more products as needed
+    '3' => [
+        'name' => 'Guitar Boombacla',
+        'price' => 320.00,
+        'image' => ['../images/Fender Telecaster.jpg', '../images/Gretsch Falcon.jpg'],
+        'description' => 'A classic electric guitar with iconic style and sound.'
+    ],
+    '4' => [
+        'name' => 'Brown Suggar',
+        'price' => 320.00,
+        'image' => ['../images/Les Paul Gibson.jpg', '../images/Gretsch Falcon.jpg'],
+        'description' => 'A classic electric guitar with iconic style and sound.'
+    ]
+    
 ];
 
 $product_id = $_GET['id'];
@@ -28,6 +40,11 @@ $product = $products[$product_id];
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="add_to_Cart.js"></script>
     <link href="../styles.css" rel="stylesheet" type="text/css" />
+    <style>
+        .nav__brand__logo__img{
+            margin-top: 10px !important;
+        }
+    </style>
 </head>
 <body>
 <header class="bg-dark w-100">
@@ -183,12 +200,12 @@ $product = $products[$product_id];
         </div>
         <aside class="related">
             <div class="_cont">
-                <h2>You might also like</h2>
+                <!-- <h2>You might also like</h2> -->
                 <div class="collection-list cols-4" id="collection-list" data-products-per-page="4">
                     <!-- Placeholder for related products -->
                 </div>
                 <div class="more-products" id="more-products-wrap">
-                    <span id="more-products" data-rows_per_page="1">More products</span>
+                    <!-- <span id="more-products" data-rows_per_page="1">More products</span> -->
                 </div>
             </div>
         </aside>

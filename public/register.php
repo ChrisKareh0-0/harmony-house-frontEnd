@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         // Registration successful, set the session variable and redirect
         $_SESSION['username'] = $username;
-        header("Location: index.php");
+        header("Location: ../home/index.php");
         exit();
     } else {
         // Error occurred, stay on the registration page

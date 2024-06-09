@@ -60,11 +60,11 @@ session_start();
           <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="shop.php" class="nav-link">Shop</a></li>
+              <!-- <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li> -->
               <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
+              <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
               <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-              <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+              <li class="nav-item cta cta-colored"><a href="../cart/cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
               <?php
               if (isset($_SESSION['username'])) {
                   $username = htmlspecialchars($_SESSION['username']);
@@ -96,7 +96,7 @@ session_start();
                     <span class="subheading">#New Arrival</span>
                     <div class="horizontal">
                         <h1 class="mb-4 mt-3">Guitars Collection 2024</h1>
-                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+                        <p class="mb-4">Checkout the awesome collection of high-end guitars</p>
                         <p><a href="#" class="btn-custom">Discover Now</a></p>
                       </div>
                 </div>
@@ -104,7 +104,7 @@ session_start();
             </div>
           </div>
 
-          <div class="slider-item js-fullheight">
+          <!-- <div class="slider-item js-fullheight">
             <div class="overlay"></div>
             <div class="container-fluid p-0">
               <div class="row d-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -120,7 +120,7 @@ session_start();
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
     </section>
 
@@ -134,7 +134,7 @@ session_start();
               </div>
               <div class="media-body">
                 <h3 class="heading">Free Shipping</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>We provide free shipping accross the Lebanese Lands</p>
               </div>
             </div>      
           </div>
@@ -145,7 +145,7 @@ session_start();
               </div>
               <div class="media-body">
                 <h3 class="heading">Support Customer</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>We make sure that our customers are satisified, if you're facing any issue or you're unsatisfied with our service please contact us.</p>
               </div>
             </div>    
           </div>
@@ -156,7 +156,7 @@ session_start();
               </div>
               <div class="media-body">
                 <h3 class="heading">Secure Payments</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>We use the most secure payment gateways in the market, to ensure safe transactions</p>
               </div>
             </div>      
           </div>
@@ -169,7 +169,7 @@ session_start();
         <div class="row justify-content-center mb-3 pb-3">
           <div class="col-md-12 heading-section text-center ftco-animate">
             <h2 class="mb-4">New Guitars Arrival</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <p>Checkout these beauties</p>
           </div>
         </div>       
       </div>
@@ -267,7 +267,7 @@ session_start();
       </div>
     </section>
 
-    <section class="ftco-gallery">
+    <!-- <section class="ftco-gallery">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8 heading-section text-center mb-4 ftco-animate">
@@ -322,7 +322,7 @@ session_start();
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <footer class="ftco-footer ftco-section">
       <div class="container">
@@ -337,7 +337,7 @@ session_start();
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Harmony House</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+              <p>Your stop for the best music store</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -378,9 +378,9 @@ session_start();
               <h2 class="ftco-heading-2">Have a Questions?</h2>
               <div class="block-23 mb-3">
                 <ul>
-                  <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                  <li><span class="icon icon-map-marker"></span><span class="text">Zouk Mikael - Lebanon</span></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+961 810 472</span></a></li>
+                  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">harmony.house.lb@gmail.com</span></a></li>
                 </ul>
               </div>
             </div>
