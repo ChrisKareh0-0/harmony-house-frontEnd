@@ -55,32 +55,13 @@ $product = $products[$product_id];
                     <img class="nav__brand__logo__img" src="../images/H_White.png" alt="waves-icon" />
                 </div>
                 <div class="nav__brand__name">
-                    <a class="brand-name--sm-w" href="/index.html">Harmony House</a>
+                    <a class="brand-name--sm-w" href="../home/index.php">Harmony House</a>
                 </div>
             </div>
             <div class="nav__menu--short px-3 py-1 ai-c">
-                <div><a href="/index.html"><i class="fas fa-bars"></i></a></div>
+                <div><a href="../home/index.php"><i class="fas fa-bars"></i></a></div>
             </div>
-            <div class="nav__menu ai-c tupper">
-                <a class="nav__menu__item" href="/index.html">
-                    <div class="nav__menu__item co-r ai-c">
-                        <div class="nav__menu__item-icon mr-2"><i class="fas fa-home"></i></div>
-                        <div class="nav__menu_item-text">home</div>
-                    </div>
-                </a>
-                <a class="nav__menu__item" href="#">
-                    <div class="nav__menu__item co-l ai-c">
-                        <div class="nav__menu__item-icon mr-2"><i class="fas fa-record-vinyl"></i></div>
-                        <div class="nav__menu_item-text">collection</div>
-                    </div>
-                </a>
-                <a class="nav__menu__item" href="#">
-                    <div class="nav__menu__item co-l ai-c">
-                        <div class="nav__menu__item-icon mr-2"><i class="fas fa-shopping-cart"></i></div>
-                        <div class="nav__menu_item-text">shopping</div>
-                    </div>
-                </a>
-            </div>
+         
         </div>
         <div class="nav--right ai-c d-none d-lg-flex h-100">
             <?php

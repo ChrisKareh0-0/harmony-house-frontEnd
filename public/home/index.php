@@ -379,7 +379,7 @@ session_start();
               <div class="block-23 mb-3">
                 <ul>
                   <li><span class="icon icon-map-marker"></span><span class="text">Zouk Mikael - Lebanon</span></li>
-                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+961 810 472</span></a></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+961 76 810 472</span></a></li>
                   <li><a href="#"><span class="icon icon-envelope"></span><span class="text">harmony.house.lb@gmail.com</span></a></li>
                 </ul>
               </div>
