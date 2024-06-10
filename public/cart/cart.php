@@ -197,77 +197,80 @@ session_start();
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
-        $(document).ready(function() {
-            updateCartTotals();
+    $(document).ready(function() {
+        updateCartTotals();
 
-            $(document).on('click', '.remove-item', function(e) {
-                e.preventDefault();
-                const row = $(this).closest('tr');
-                const productId = row.data('id');
-                removeFromCart(productId, row);
-            });
-
-            $(document).on('change', '.quantity', function() {
-                const row = $(this).closest('tr');
-                const productId = row.data('id');
-                const newQuantity = $(this).val();
-                updateCartItem(productId, newQuantity);
-            });
+        $(document).on('click', '.remove-item', function(e) {
+            e.preventDefault();
+            const row = $(this).closest('tr');
+            const productId = row.data('id');
+            console.log("Removing product ID: " + productId);  // Debugging
+            removeFromCart(productId, row);
         });
 
-        function removeFromCart(productId, row) {
-            $.ajax({
-                url: 'remove_from_cart.php',
-                type: 'POST',
-                data: { id: productId },
-                success: function(response) {
-                    const result = JSON.parse(response);
-                    if (result.success) {
-                        row.remove();
-                        updateCartTotals();
-                    } else {
-                        console.error(result.error);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error removing item from cart:', error);
-                }
-            });
-        }
+        $(document).on('change', '.quantity', function() {
+            const row = $(this).closest('tr');
+            const productId = row.data('id');
+            const newQuantity = $(this).val();
+            console.log("Updating product ID: " + productId + " with quantity: " + newQuantity);  // Debugging
+            updateCartItem(productId, newQuantity);
+        });
+    });
 
-        function updateCartItem(productId, quantity) {
-            $.ajax({
-                url: 'update_cart_item.php',
-                type: 'POST',
-                data: { id: productId, quantity: quantity },
-                success: function(response) {
-                    const result = JSON.parse(response);
-                    if (result.success) {
-                        updateCartTotals();
-                    } else {
-                        console.error(result.error);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error updating cart item:', error);
+    function removeFromCart(productId, row) {
+        $.ajax({
+            url: 'remove_from_cart.php',
+            type: 'POST',
+            data: { id: productId },
+            success: function(response) {
+                const result = JSON.parse(response);
+                if (result.success) {
+                    row.remove();
+                    updateCartTotals();
+                } else {
+                    console.error(result.error);
                 }
-            });
-        }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error removing item from cart:', error);
+            }
+        });
+    }
 
-        function updateCartTotals() {
-            $.ajax({
-                url: 'get_cart_totals.php',
-                type: 'GET',
-                success: function(response) {
-                    const cart = JSON.parse(response);
-                    $('#cart-subtotal').text('$' + cart.totalPrice.toFixed(2));
-                    $('#cart-total').text('$' + (cart.totalPrice + 10).toFixed(2)); // Adding shipping cost
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error updating cart totals:', error);
+    function updateCartItem(productId, quantity) {
+        $.ajax({
+            url: 'update_cart_item.php',
+            type: 'POST',
+            data: { id: productId, quantity: quantity },
+            success: function(response) {
+                const result = JSON.parse(response);
+                if (result.success) {
+                    updateCartTotals();
+                } else {
+                    console.error(result.error);
                 }
-            });
-        }
-    </script>
+            },
+            error: function(xhr, status, error) {
+                console.error('Error updating cart item:', error);
+            }
+        });
+    }
+
+    function updateCartTotals() {
+        $.ajax({
+            url: 'get_cart_totals.php',
+            type: 'GET',
+            success: function(response) {
+                const cart = JSON.parse(response);
+                $('#cart-subtotal').text('$' + cart.totalPrice.toFixed(2));
+                $('#cart-total').text('$' + (cart.totalPrice + 10).toFixed(2)); // Adding shipping cost
+            },
+            error: function(xhr, status, error) {
+                console.error('Error updating cart totals:', error);
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
