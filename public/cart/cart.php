@@ -186,7 +186,7 @@ session_start();
                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                                     <h5 class="font-weight-bold" id="cart-total">$0</h5>
                                 </li>
-                            </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Proceed to checkout</a>
+                            </ul><a href="../home/checkout.html" class="btn btn-dark rounded-pill py-2 btn-block">Proceed to checkout</a>
                         </div>
                     </div>
                 </div>
@@ -195,6 +195,7 @@ session_start();
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function() {
             updateCartTotals();
@@ -220,8 +221,13 @@ session_start();
                 type: 'POST',
                 data: { id: productId },
                 success: function(response) {
-                    row.remove();
-                    updateCartTotals();
+                    const result = JSON.parse(response);
+                    if (result.success) {
+                        row.remove();
+                        updateCartTotals();
+                    } else {
+                        console.error(result.error);
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.error('Error removing item from cart:', error);
@@ -235,7 +241,12 @@ session_start();
                 type: 'POST',
                 data: { id: productId, quantity: quantity },
                 success: function(response) {
-                    updateCartTotals();
+                    const result = JSON.parse(response);
+                    if (result.success) {
+                        updateCartTotals();
+                    } else {
+                        console.error(result.error);
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.error('Error updating cart item:', error);
@@ -249,8 +260,8 @@ session_start();
                 type: 'GET',
                 success: function(response) {
                     const cart = JSON.parse(response);
-                    $('#cart-subtotal').text('$' + cart.totalPrice);
-                    $('#cart-total').text('$' + (cart.totalPrice + 10)); // Adding shipping cost
+                    $('#cart-subtotal').text('$' + cart.totalPrice.toFixed(2));
+                    $('#cart-total').text('$' + (cart.totalPrice + 10).toFixed(2)); // Adding shipping cost
                 },
                 error: function(xhr, status, error) {
                     console.error('Error updating cart totals:', error);

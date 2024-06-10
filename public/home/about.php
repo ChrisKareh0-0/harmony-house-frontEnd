@@ -66,7 +66,7 @@ session_start();
             <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
             <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-            <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+            <li class="nav-item cta cta-colored"><a href="../cart/cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
             <?php
             if (isset($_SESSION['username'])) {
                 $username = htmlspecialchars($_SESSION['username']);
